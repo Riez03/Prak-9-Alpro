@@ -3,30 +3,29 @@ using namespace std;
 class Array {
 public:
   void input();
-  void cetak_satu();
-  void sorting();
-  void konversi();
-  void cetak_dua();
+  void proses();
+  void output();
 
 private:
   int array[20][20], array2[50];
   int n, z, m, k, temp;
 };
+
 void Array::input() {
   cout << "Masukan Jumlah Buku :";
   cin >> z;
   for (int i = 0; i < z; i++) {
-    cout << "Nomor buku ke [" << i << "] : ";
+    cout << "Nomor buku ke [" << i+1 << "] : ";
     cin >> array2[i];
   }
-}
-void Array::cetak_satu() {
-  cout << "Bentuk Array 1D :" << endl;
+
+  cout << "\nNomor buku :" << endl;
   for (int k = 0; k < z; k++) {
     cout << array2[k] << "  ";
   }
 }
-void Array::sorting() {
+
+void Array::proses(){ 
   for (int i = 0; i < z; i++) {
     for (int c = 0; c < z - 1; c++) {
       if (array2[c] > array2[c + 1]) {
@@ -36,12 +35,11 @@ void Array::sorting() {
       }
     }
   }
-}
-void Array::konversi() {
-  cout << " \nUbah ke array 2D :\n";
-  cout << " Input jumlah baris : ";
+
+
+  cout << "\n\nInput jumlah baris : ";
   cin >> n;
-  cout << " Input jumlah kolom : ";
+  cout << "Input jumlah kolom : ";
   cin >> m;
   k = 0;
   for (int i = 0; i < n; i++) {
@@ -51,8 +49,9 @@ void Array::konversi() {
     }
   }
 }
-void Array::cetak_dua() {
-  cout << "\n Bentuk array 2D :" << endl;
+
+void Array::output(){ 
+  cout << "\nSusunan buku :" << endl;
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
       cout << array[i][j] << "\t";
@@ -62,7 +61,7 @@ void Array::cetak_dua() {
 
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
-      cout << "Rak ke " << i + 1 << ", kolom ke " << j + 1 << ", Buku nomor "
+      cout << "\nRak ke " << i + 1 << ", kolom ke " << j + 1 << ", Buku nomor "
            << array[i][j] << endl;
     }
   }
@@ -71,9 +70,7 @@ void Array::cetak_dua() {
 int main() {
   Array run;
   run.input();
-  run.cetak_satu();
-  run.sorting();
-  run.konversi();
-  run.cetak_dua();
+  run.proses();
+  run.output();
   return 0;
 }
